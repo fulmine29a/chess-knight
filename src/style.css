@@ -1,0 +1,68 @@
+html{
+    height: 100%;
+}
+
+body{
+    --field-size: 40px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+field{
+    display: block;
+    width: calc(var(--field-size) * 8);
+    height: calc(var(--field-size) * 8);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+label{
+    display: block;
+    float: left;
+    width: var(--field-size);
+    height: var(--field-size);
+}
+
+label:not(label:nth-child(n+9)):nth-child(odd),
+label:nth-child(n+17):not(label:nth-child(n+25)):nth-child(odd),
+label:nth-child(n+33):not(label:nth-child(n+41)):nth-child(odd),
+label:nth-child(n+49):not(label:nth-child(n+57)):nth-child(odd)
+{
+    background: black;
+}
+
+label:nth-child(n+9):not(label:nth-child(n+17)):nth-child(even),
+label:nth-child(n+25):not(label:nth-child(n+33)):nth-child(even),
+label:nth-child(n+41):not(label:nth-child(n+49)):nth-child(even),
+label:nth-child(n+57):not(label:nth-child(n+65)):nth-child(even)
+{
+    background: black;
+}
+
+input{
+    appearance: none;
+    display: block;
+    width: var(--field-size);
+    height: var(--field-size);
+    margin: 0;
+}
+
+input:checked{
+    position: absolute;
+    z-index: 1000;
+    box-shadow:
+            calc(1 * var(--field-size)) calc(var(--field-size) * -2) rgba(255,0,0,.5),
+            calc(2 * var(--field-size)) calc(var(--field-size) * -1) rgba(255,0,0,.5),
+            calc(2 * var(--field-size)) calc(var(--field-size) * 1) rgba(255,0,0,.5),
+            calc(1 * var(--field-size)) calc(var(--field-size) * 2) rgba(255,0,0,.5),
+
+            calc(-1 * var(--field-size)) calc(var(--field-size) * 2) rgba(255,0,0,.5),
+            calc(-2 * var(--field-size)) calc(var(--field-size) * 1) rgba(255,0,0,.5),
+            calc(-2 * var(--field-size)) calc(var(--field-size) * -1) rgba(255,0,0,.5),
+            calc(-1 * var(--field-size)) calc(var(--field-size) * -2) rgba(255,0,0,.5)
+    ;
+}
