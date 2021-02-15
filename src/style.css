@@ -17,7 +17,6 @@ field{
     height: calc(var(--field-size) * 8);
     overflow: hidden;
     position: relative;
-    cursor: pointer;
 }
 
 label{
@@ -49,6 +48,7 @@ input{
     width: var(--field-size);
     height: var(--field-size);
     margin: 0;
+    cursor: pointer;
 }
 
 input:checked{
